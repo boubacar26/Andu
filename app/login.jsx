@@ -1,13 +1,15 @@
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Image, StyleSheet, Text, TextInput, View , Pressable} from 'react-native'
 import React from 'react'
 import ScreenWrapper from '../components/ScreenWrapper'
 import BackButton from '../components/BackButton'
-import { router } from 'expo-router'
+import { useRouter } from 'expo-router'
 import { wp, hp } from "../helpers/common";
 import Input from '../components/Input'
 import Bouton from '../components/Bouton'
 
 const Login = () => {
+  const router = useRouter();
+
   return (
     <ScreenWrapper>
       <View style={styles.container}>
@@ -22,10 +24,11 @@ const Login = () => {
           <Input placeholder="Mot de passe" />
         </View>
         <View style={styles.forgotpsw}>
-          <Text>Mot de passe oublié ?</Text>
-        </View>
+            <Pressable onPress={() => router.push("forgotPassword")}><Text style={styles.login} > Mot de passe oublié ? </Text></Pressable>
+          </View>
         <View>
           <Bouton title="Se connecter" style={styles.btn} />
+          <Bouton title="S'inscrire" onPress={()=> router.push('signUp')} style={styles.btn} />
         </View>
       </View>
     </ScreenWrapper>
@@ -53,11 +56,16 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "#009688",
   },
-  forgotpsw:{
-    textAlign:'right'
+  forgotpsw: {
+    // textAlign: "right",
+    display: "flex",
+    // flexDirection: "row",
+    justifyContent: "flex-end",
+    // marginTop: 5,
   },
-  btn:{
-    textTransform:'uppercase',
-    fontWeight: 'bold'
-  }
+  btn: {
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    // padding: '40%'
+  },
 });

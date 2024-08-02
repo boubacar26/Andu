@@ -24,7 +24,7 @@ const Welcome = () => {
           <Text style={styles.texte} >Le suivi éducatif de vos enfants à portée de main</Text>
         </View> 
         <View style={styles.footer} >
-            <Bouton style={styles.btn} title='Commencer' onPress={() => router.push('login')} />
+            <Bouton style={styles.btn} title='Commencer' onPress={() => router.push('signUp')} />
         </View>
       </View>
     </ScreenWrapper>

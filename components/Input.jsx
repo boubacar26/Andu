@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
         // borderCurve: 'continuous',
         borderRadius: '20px',
         // backgroundColor: 'red'
-        marginBottom: 45
+        marginBottom: 18
     }
 })

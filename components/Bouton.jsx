@@ -36,9 +36,12 @@ export default Bouton
 const styles = StyleSheet.create({
   button: {
     backgroundColor: "#009688",
-    padding: "5%",
-    borderRadius: "15px"
-
+    paddingTop: "5%",
+    paddingBottom: "5%",
+    paddingLeft: "25%",
+    paddingRight: "25%",
+    borderRadius: "20px",
+    marginBottom: 15
   },
   text:{
     color: "white",
