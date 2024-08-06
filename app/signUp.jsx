@@ -1,5 +1,5 @@
-import { Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import { Image, Pressable, StyleSheet, Text, View, Alert } from "react-native";
+import React, {useRef, useState} from "react";
 import ScreenWrapper from "../components/ScreenWrapper";
 import BackButton from "../components/BackButton";
 import { useRouter } from "expo-router";
@@ -9,9 +9,20 @@ import Bouton from "../components/Bouton";
 
 const SignUp = () => {
       const router = useRouter();
+      const nameRef = useRef("");
+      const emailRef = useRef("");
+      const telRef = useRef("");
+      const passwordRef = useRef("");
+      const [loading, setLoading] = useState(false);
+
+      const onSubmit = async () => {
+        if (!nameRef || !emailRef.current || !telRef || !passwordRef.current) {
+          Alert.alert("S'inscrire", "Remplissez tous les champs d'abord");
+        }
+      };
 
   return (
-    <ScreenWrapper>
+    <ScreenWrapper bg='white'>
       <View style={styles.container}>
         <BackButton router={router} />
 
@@ -20,21 +31,17 @@ const SignUp = () => {
         </View>
         <Text style={styles.text}>Créer un compte</Text>
         <View>
-          <Input placeholder="Nom complet" />
-          <Input placeholder="Adresse mail" />
-          <Input placeholder="Numero de Téléphone" />
-          <Input placeholder="Mot de passe" />
-          <Input placeholder="Confirmer votre mot de passe" />
+          <Input placeholder="Nom complet"  onChangeText={(value) => (nameRef.current = value)}/>
+          <Input placeholder="Adresse mail" onChangeText={(value) => (emailRef.current = value)} />
+          <Input placeholder="Numero de Téléphone" onChangeText={(value) => (telRef.current = value)}  />
+          <Input placeholder="Mot de passe" secureTextEntry onChangeText={(value) => (passwordRef.current = value)} />
+          <Input placeholder="Confirmer votre mot de passe" secureTextEntry onChangeText={(value) => (passwordRef.current = value)} />
         </View>
-        {/* <View style={styles.forgotpsw}>
-          <Text>Mot de passe oublié ?</Text>
-        </View> */}
         <View>
-          <Bouton title="Creer un compte" style={styles.btn} />
+          <Bouton title="Creer un compte" style={styles.btn} onPress={onSubmit} loading={loading} />
           <View style={styles.forgotpsw}>
             <Text>Déja inscrit ? </Text><Pressable onPress={() => router.push("login")}><Text style={styles.login} > Se connecter </Text></Pressable>
           </View>
-          {/* <Bouton title="S'inscrire" style={styles.btn} /> */}
         </View>
       </View>
     </ScreenWrapper>
@@ -45,25 +52,19 @@ export default SignUp;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     gap: 45,
     paddingHorizontal: wp(5),
     alignItems: "center",
   },
   logo: {
     width: 25,
-    // height: "10%",
     alignItems: "center",
-
-    // marginBottom: 25
   },
   text: {
-    // marginTop: '15px',
     fontSize: 30,
     color: "#009688",
   },
   forgotpsw: {
-    // textAlign: "right",
     display: "flex",
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -72,7 +73,6 @@ const styles = StyleSheet.create({
   btn: {
     textTransform: "uppercase",
     fontWeight: "bold",
-    // padding: '40%'
   },
   login: {
     color: "#009688",

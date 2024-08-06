@@ -1,7 +1,7 @@
-import { Image, Pressable, StatusBar, StyleSheet, Text, View } from 'react-native'
+import { Image, StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ScreenWrapper from '../components/ScreenWrapper'
-import { wp, hp } from '../helpers/common'
+import { wp } from '../helpers/common'
 import Bouton from '../components/Bouton'
 import { useRouter } from 'expo-router'
 
@@ -24,7 +24,7 @@ const Welcome = () => {
           <Text style={styles.texte} >Le suivi éducatif de vos enfants à portée de main</Text>
         </View> 
         <View style={styles.footer} >
-            <Bouton style={styles.btn} title='Commencer' onPress={() => router.push('signUp')} />
+            <Bouton style={styles.btn} title='Commencer' onPress={() => router.push('otp')} />
         </View>
       </View>
     </ScreenWrapper>

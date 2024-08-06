@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import ScreenWrapper from "../components/ScreenWrapper";
 import BackButton from "../components/BackButton";
@@ -6,8 +6,9 @@ import { useRouter } from "expo-router";
 import { wp } from "../helpers/common";
 import Input from "../components/Input";
 import Bouton from "../components/Bouton";
+import DropdownComponent from "../components/Dropdown";
 
-const ForgotPassword = () => {
+const RechercheEnfant = () => {
   const router = useRouter();
 
   return (
@@ -18,53 +19,42 @@ const ForgotPassword = () => {
         <View style={styles.logo}>
           <Image source={require("../assets/images/logo_vert.png")} />
         </View>
-        <Text style={styles.text}>Vérifiez votre numéro de téléphone</Text>
         <View>
-          <Input placeholder="Numero de Téléphone" />
+          <Text style={styles.text}>Cherchez votre enfant</Text>
         </View>
-        <View>
-          <Bouton title="Envoyer le code" style={styles.btn} />
-          {/* <Bouton
-            title="S'inscrire"
-            onPress={() => router.push("signUp")}
-            style={styles.btn}
-          /> */}
+        <View style={styles.ipt}>
+          <Input placeholder="Code de verification" />
+        </View>
+        <View style={styles.btn}>
+          <Bouton style={styles.test} title="Verifier" />
         </View>
       </View>
+        <DropdownComponent/>
     </ScreenWrapper>
   );
 };
 
-export default ForgotPassword;
+export default RechercheEnfant;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     gap: 45,
     paddingHorizontal: wp(5),
     alignItems: "center",
   },
-  logo: {
-    width: 25,
-    // height: "10%",
-    alignItems: "center",
-
-    // marginBottom: 25
-  },
   text: {
-    // marginTop: '15px',
+    marginTop: 50,
+    textAlign: "center",
     fontSize: 30,
-    color: "#009688",
-    textAlign: 'center',
-    marginTop: 60
   },
-  forgotpsw: {
+  ipt: {
     display: "flex",
-    justifyContent: "flex-end",
+    alignItems: "center",
+    marginTop: 60,
   },
   btn: {
-    textTransform: "uppercase",
-    fontWeight: "bold",
-    // padding: '40%'
+    display: "flex",
+    alignItems: "center",
+    marginTop: 40,
   },
 });

@@ -1,6 +1,5 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native'
+import { StyleSheet, TextInput, View } from 'react-native'
 import React from 'react'
-import { wp, hp } from "../helpers/common";
 
 
 const Input = (props) => {
@@ -21,13 +20,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         height: 50,
         width: 300,
-        alignItems: 'center',
-        justifyContent: 'center',
+        padding: 20,
+        // alignItems: 'start',
+        // justifyContent: 'center',
         borderWidth: 0.3, 
         borderColor: '#000',
         // borderCurve: 'continuous',
         borderRadius: '20px',
         // backgroundColor: 'red'
         marginBottom: 18
+    },
+    ipt:{
+      width: '100%'
     }
+
 })

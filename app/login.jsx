@@ -1,17 +1,28 @@
-import { Image, StyleSheet, Text, TextInput, View , Pressable} from 'react-native'
-import React from 'react'
+import { Image, StyleSheet, Text, View , Pressable, Alert} from 'react-native'
+import React, { useRef, useState } from 'react'
 import ScreenWrapper from '../components/ScreenWrapper'
 import BackButton from '../components/BackButton'
 import { useRouter } from 'expo-router'
-import { wp, hp } from "../helpers/common";
+import { wp } from "../helpers/common";
 import Input from '../components/Input'
 import Bouton from '../components/Bouton'
 
 const Login = () => {
   const router = useRouter();
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+  const [loading, setLoading] = useState(false);
+
+
+  const onSubmit = async () => {
+    if(!emailRef.current || !passwordRef.current){
+      Alert.alert('Se connecter', 'Remplissez tous les champs d\'abord')
+    }
+  }
+
 
   return (
-    <ScreenWrapper>
+    <ScreenWrapper bg="white">
       <View style={styles.container}>
         <BackButton router={router} />
 
@@ -20,15 +31,33 @@ const Login = () => {
         </View>
         <Text style={styles.text}>Connectez-vous</Text>
         <View>
-          <Input placeholder="Adresse mail" />
-          <Input placeholder="Mot de passe" />
+          <Input
+            placeholder="Adresse mail"
+            onChangeText={(value) => (emailRef.current = value)}
+          />
+          <Input
+            placeholder="Mot de passe"
+            onChangeText={(value) => (passwordRef.current = value)}
+            secureTextEntry
+          />
         </View>
         <View style={styles.forgotpsw}>
-            <Pressable onPress={() => router.push("forgotPassword")}><Text style={styles.login} > Mot de passe oublié ? </Text></Pressable>
-          </View>
+          <Pressable onPress={() => router.push("forgotPassword")}>
+            <Text style={styles.login}> Mot de passe oublié ? </Text>
+          </Pressable>
+        </View>
         <View>
-          <Bouton title="Se connecter" style={styles.btn} />
-          <Bouton title="S'inscrire" onPress={()=> router.push('signUp')} style={styles.btn} />
+          <Bouton
+            title="Se connecter"
+            style={styles.btn}
+            loading={loading}
+            onPress={onSubmit}
+          />
+          <Bouton
+            title="S'inscrire"
+            onPress={() => router.push("signUp")}
+            style={styles.btn}
+          />
         </View>
       </View>
     </ScreenWrapper>
@@ -52,20 +81,15 @@ const styles = StyleSheet.create({
     // marginBottom: 25
   },
   text: {
-    // marginTop: '15px',
     fontSize: 30,
     color: "#009688",
   },
   forgotpsw: {
-    // textAlign: "right",
     display: "flex",
-    // flexDirection: "row",
     justifyContent: "flex-end",
-    // marginTop: 5,
   },
   btn: {
     textTransform: "uppercase",
     fontWeight: "bold",
-    // padding: '40%'
   },
 });
