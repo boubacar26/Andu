@@ -4,6 +4,8 @@ import ScreenWrapper from "../components/ScreenWrapper";
 import BackButton from '../components/BackButton';
 import { wp } from '../helpers/common';
 import { router } from 'expo-router';
+import NavTabs from '../components/NavTabs';
+
 
 const DetailEnfant = () => {
   return (
@@ -13,7 +15,9 @@ const DetailEnfant = () => {
           <BackButton router={router} />
           <Text style={styles.enfant}>Fiche de Mamadou Diop</Text>
         </View>
-        
+        <View>
+          <NavTabs/>
+        </View>
       </View>
     </ScreenWrapper>
   );

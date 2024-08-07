@@ -11,7 +11,7 @@ const Icon = ({name, ...props}) => {
       <IconComponent
         height={props.size || 24}
         width={props.size || 24}
-        strokeWirth={props.strokeWirth || 1.9}
+        strokeWidth={props.strokeWidth || 1.9}
         color='#000'
         {...props}
       />

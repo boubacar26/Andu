@@ -19,7 +19,7 @@ const codeVerification = () => {
           <Image source={require("../assets/images/logo_vert.png")} />
         </View>
       </View>
-      <Text style={styles.text}>Entrez le code verification</Text>
+      <Text style={styles.text}>Entrez le code de verification</Text>
       <View style={styles.ipt}>
         <Input placeholder="Code de verification" />
       </View>
