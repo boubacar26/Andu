@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   activeTab: {
-    // fontWeight: "bold",
+    fontWeight: "bold",
     borderBottomWidth: 2,
     borderBottomColor: "#009688",
     color: "#009688",

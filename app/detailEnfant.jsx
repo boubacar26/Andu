@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ScreenWrapper from "../components/ScreenWrapper";
 import BackButton from '../components/BackButton';
 import { wp } from '../helpers/common';
 import { router } from 'expo-router';
 import NavTabs from '../components/NavTabs';
+import ScreenWrapper from '../components/ScreenWrapper';
 
 
 const DetailEnfant = () => {

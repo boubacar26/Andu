@@ -34,23 +34,26 @@ export default codeVerification;
 
 const styles = StyleSheet.create({
   container: {
-    gap: 45,
+    // flex: 1,
+    // gap: 45,
     paddingHorizontal: wp(5),
     alignItems: "center",
   },
   text: {
-    marginTop: 50,
+    marginTop: 80,
     textAlign: "center",
     fontSize: 30,
+    padding: 13
+    // marginLeft:
   },
   ipt: {
     display: "flex",
     alignItems: "center",
-    marginTop: 60,
+    marginTop: 80,
   },
   btn: {
     display: "flex",
     alignItems: "center",
-    marginTop: 40,
+    marginTop: 80,
   },
 });

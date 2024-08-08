@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
   btn: {
     // width: 250,
     alignItems: "center",
+    marginTop: 15
   },
   nom: {
     color: "#009688",

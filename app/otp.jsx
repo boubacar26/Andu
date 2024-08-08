@@ -57,6 +57,10 @@ const styles = StyleSheet.create({
   text2: {
     marginTop: 50,
     textAlign: "center",
+    // marginLeft: 10,
+    padding: 20,
+    // marginRight: 10,
+    margin: 'auto'
     // fontSize: 30,
   },
   ipt: {

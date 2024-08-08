@@ -22,11 +22,11 @@ const carousel = () => {
         },)(event);
     };
 
-    const handleOnViewableItemsChanged = useRef(({viewableItems})=> {
-        // console.log('viewableItems', viewableItems);
-        setIndex(viewableItems[0].index)
+    // const handleOnViewableItemsChanged = useRef(({viewableItems})=> {
+    //     // console.log('viewableItems', viewableItems);
+    //     setIndex(viewableItems[0].index)
         
-    }).current;
+    // }).current;
 
     const viewabilityConfig = useRef({
         itemVisiblePercentThreshold: 50
@@ -42,7 +42,7 @@ const carousel = () => {
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
         onScroll={handleOnScroll}
-        onViewableItemsChanged={handleOnViewableItemsChanged}
+        // onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={viewabilityConfig}
       />
       <Pagination data={Slides} scrollX={scrollX} index={index} />
